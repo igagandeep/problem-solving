@@ -20,3 +20,25 @@ function pyramid(n) {
         
     }    
 }
+
+
+Solution 2: 
+
+
+function pyramid(n, row = 0, level = '') {
+    
+    if(row === n)return;
+    
+    
+    const midpoint = Math.floor((2 * n -1) / 2);
+    
+    
+    if(level.length === (2 * n -1)){
+        console.log(level);
+        return pyramid(n, row + 1);
+    }
+    
+    const add = midpoint - row <= level.length && midpoint + row >= level.length ? '#' : ' ';
+    pyramid(n, row, level + add);
+
+}
